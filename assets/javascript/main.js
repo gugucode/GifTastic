@@ -19,7 +19,7 @@ function getAndPrint(key){
         for (var i = 0; i < results.length; i++) {
           var giphyDiv = $("<div>").addClass("giphydiv");
           var p = $("<p>").text("Rating: "+results[i].rating);
-          var foodImage = $("<img>").attr("src",results[i].images.fixed_height.url);
+          var foodImage = $("<img>").attr("src",results[i].images.fixed_height_still.url);
           giphyDiv.append(p,foodImage);
           $("#giphys").prepend(giphyDiv);
         }
@@ -31,16 +31,19 @@ $(document).ready(function() {
     for(var i = 0; i < labels.length; i++){
         renderBnt(labels[i]);
     }
-    
-    $("#addbnt").click(function(){
-        var label = $("#search_label").val();
-        renderBnt(label);
-        getAndPrint(label);
+
+    $("#addbnt").on("click",function(event){
+        event.preventDefault();
+        var label = $("#search_term").val().trim();
+        if(label !== ""){
+            renderBnt(label);
+            getAndPrint(label);
+            $("#search_term").val("");
+        }
     })
 
     $(".bnt").click(function(){
         var label = $(this).text();
-        // renderBnt(label);
         getAndPrint(label);
     })
 

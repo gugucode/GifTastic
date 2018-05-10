@@ -1,0 +1,44 @@
+#bntlabels {
+    width: 100%;
+    height: 5em;
+    margin: 1em 0;
+    /* background: white; */
+}
+
+.bnt {
+    margin: .25em;
+    padding: .5em;
+    text-align: center;
+    background: lightgreen;
+    border: none;
+}
+
+label {
+    width: 15em;
+    font-weight: bold;
+}
+
+#search_term {
+    width: 20em;
+    height: 2em;
+    margin-top: 1em;
+}
+
+#addbnt {
+    width: 5em;
+    height: 2em;
+    margin-top: 1em;
+    background: lightgreen;
+    border-radius: .5em;
+}
+
+button:hover {
+    color: white;
+}
+
+.giphydiv {
+    display: inline-block;
+    margin: 1em;
+    padding: 1em;
+    border: .2em lightgreen dotted;
+}

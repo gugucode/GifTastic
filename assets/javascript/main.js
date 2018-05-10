@@ -17,11 +17,18 @@ function getAndPrint(key){
         var results = response.data;
         $("#giphys").empty()
         for (var i = 0; i < results.length; i++) {
-          var giphyDiv = $("<div>").addClass("giphydiv");
-          var p = $("<p>").text("Rating: "+results[i].rating);
-          var foodImage = $("<img>").attr("src",results[i].images.fixed_height_still.url);
-          giphyDiv.append(p,foodImage);
-          $("#giphys").prepend(giphyDiv);
+            var giphyDiv = $("<div>").addClass("giphydiv");
+
+            var p = $("<p>").text("Rating: "+results[i].rating);
+
+            var foodImage = $("<img>").attr("src",results[i].images.fixed_height_still.url);
+            foodImage.attr("state","still");
+            foodImage.attr("still_image",results[i].images.fixed_height_still.url);
+            foodImage.attr("animate_image",results[i].images.fixed_height.url);
+            foodImage.addClass("gif");
+
+            giphyDiv.append(p,foodImage);
+            $("#giphys").prepend(giphyDiv);
         }
     })
 }
@@ -42,9 +49,20 @@ $(document).ready(function() {
         }
     })
 
-    $(".bnt").click(function(){
+    $("#bntlabels").on("click",".bnt",function(){
         var label = $(this).text();
         getAndPrint(label);
+    })
+
+    $("#giphys").on("click",".gif",function(){
+        console.log("hi");
+        if($(this).attr("state") === "still"){
+            $(this).attr("state","animate");
+            $(this).attr("src",$(this).attr("animate_image"));
+        }else{
+            $(this).attr("state","still");
+            $(this).attr("src",$(this).attr("still_image"));
+        }
     })
 
 

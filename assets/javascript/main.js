@@ -1,6 +1,7 @@
 var labels = ["sushi","pizza","dumpling","apple","yogurt"];
 var api_key = "QcEoE1Z2Sq2zbYKLnb1LParbGCJtqYaT";
 
+// Function to print botton
 function renderBnt(label){
     var bnt = $("<button>").addClass("bnt").text(label);
     $("#bntlabels").append(bnt);
@@ -35,10 +36,12 @@ function getAndPrint(key){
 
 $(document).ready(function() {
     
+    // Print the default buttons first
     for(var i = 0; i < labels.length; i++){
         renderBnt(labels[i]);
     }
 
+    // Handle add 
     $("#addbnt").on("click",function(event){
         event.preventDefault();
         var label = $("#search_term").val().trim();

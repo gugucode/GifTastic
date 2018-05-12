@@ -9,7 +9,7 @@ function renderBnt(label){
 
 // access API to get data and print
 function getAndPrint(key){
-    var url_link = "http://api.giphy.com/v1/gifs/search?q=" + key + "&api_key=" + api_key + "&limit=10";
+    var url_link = "https://api.giphy.com/v1/gifs/search?q=" + key + "&api_key=" + api_key + "&limit=10";
     $.ajax({
         url: url_link,
         method: "GET"
@@ -41,7 +41,7 @@ $(document).ready(function() {
         renderBnt(labels[i]);
     }
 
-    // Handle add 
+    // Handle add button event, access API and print result
     $("#addbnt").on("click",function(event){
         event.preventDefault();
         var label = $("#search_term").val().trim();
@@ -52,11 +52,13 @@ $(document).ready(function() {
         }
     })
 
+    // Handle click button event, access API and print result
     $("#bntlabels").on("click",".bnt",function(){
         var label = $(this).text();
         getAndPrint(label);
     })
 
+    // Handle start and stop animated image
     $("#giphys").on("click",".gif",function(){
         console.log("hi");
         if($(this).attr("state") === "still"){

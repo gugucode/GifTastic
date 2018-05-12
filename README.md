@@ -5,7 +5,7 @@ In this project, we create a form to let user enter search term and use giphy AP
 
 ## Getting Started
 
-You can start playing this game at https://gugucode.github.io/GifTastic/ .
+You can start playing this game at https://gugucode.github.io/GifTastic/ 
 
 or 
 
